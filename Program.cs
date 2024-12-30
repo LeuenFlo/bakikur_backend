@@ -77,12 +77,16 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-// Create the database if it doesn't exist
+// Create the database and seed data
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var context = services.GetRequiredService<ApplicationDbContext>();
+    var env = services.GetRequiredService<IWebHostEnvironment>();
+    var logger = services.GetRequiredService<ILogger<Program>>();
+    
     context.Database.EnsureCreated();
+    await DataSeeder.SeedData(context, env, logger);
 }
 
 app.Run();
