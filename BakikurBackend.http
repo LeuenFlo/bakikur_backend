@@ -1,0 +1,6 @@
+@BakikurBackend_HostAddress = http://localhost:5040
+
+GET {{BakikurBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

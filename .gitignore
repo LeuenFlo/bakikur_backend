@@ -1,0 +1,22 @@
+## .NET Core
+bin/
+obj/
+*.user
+*.userosscache
+*.suo
+*.userprefs
+.vs/
+.vscode/
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+
+## SQLite database
+*.db
+*.db-shm
+*.db-wal
+
+## Uploaded files
+wwwroot/uploads/ 
