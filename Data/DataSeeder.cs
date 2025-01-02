@@ -31,7 +31,10 @@ public static class DataSeeder
                     Description = "Praktischer und stilvoller Klapptisch aus hochwertigem Holz, perfekt für flexible Raumnutzung",
                     Category = "moebel",
                     CompletionDate = new DateTime(2024, 1, 1),
-                    ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "klapptisch.jpg", logger)
+                    Images = new List<ProjectImage>
+                    {
+                        new ProjectImage { ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "klapptisch.jpg", logger) }
+                    }
                 },
                 new Project
                 {
@@ -39,7 +42,11 @@ public static class DataSeeder
                     Description = "Handgefertigte Sitzbank mit klaren Linien und komfortabler Polsterung",
                     Category = "moebel",
                     CompletionDate = new DateTime(2023, 12, 1),
-                    ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "bank.jpg", logger)
+                    Images = new List<ProjectImage>
+                    {
+                        new ProjectImage { ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "bank.jpg", logger) },
+                        new ProjectImage { ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "72185833_102249957899946_554235000921260032_n.jpg", logger) }
+                    }
                 },
                 new Project
                 {
@@ -47,7 +54,11 @@ public static class DataSeeder
                     Description = "Maßgefertigter Einbauschrank mit optimaler Raumnutzung und elegantem Design",
                     Category = "innenausbau",
                     CompletionDate = new DateTime(2023, 11, 1),
-                    ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "272858613_527332492058355_350812099419953533_n.jpg", logger)
+                    Images = new List<ProjectImage>
+                    {
+                        new ProjectImage { ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "272858613_527332492058355_350812099419953533_n.jpg", logger) },
+                        new ProjectImage { ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "272870698_527332482058356_8850788711117786032_n.jpg", logger) }
+                    }
                 },
                 new Project
                 {
@@ -55,7 +66,12 @@ public static class DataSeeder
                     Description = "Moderne Küchenmöbel mit hochwertigen Beschlägen und durchdachter Raumaufteilung",
                     Category = "innenausbau",
                     CompletionDate = new DateTime(2023, 10, 1),
-                    ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "274230217_539119180879686_4089096177529724589_n.jpg", logger)
+                    Images = new List<ProjectImage>
+                    {
+                        new ProjectImage { ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "274230217_539119180879686_4089096177529724589_n.jpg", logger) },
+                        new ProjectImage { ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "274144181_539119007546370_8850609268575953166_n.jpg", logger) },
+                        new ProjectImage { ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "274129502_539119420879662_5337474781398331841_n.jpg", logger) }
+                    }
                 },
                 new Project
                 {
@@ -63,7 +79,11 @@ public static class DataSeeder
                     Description = "Fachgerechte Restaurierung historischer Holztüren mit Bewahrung der ursprünglichen Charakteristik",
                     Category = "restaurierung",
                     CompletionDate = new DateTime(2023, 9, 1),
-                    ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "166817284_323222232469383_8629170683145990355_n.jpg", logger)
+                    Images = new List<ProjectImage>
+                    {
+                        new ProjectImage { ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "166817284_323222232469383_8629170683145990355_n.jpg", logger) },
+                        new ProjectImage { ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "166613364_323222212469385_7462212440238162404_n.jpg", logger) }
+                    }
                 },
                 new Project
                 {
@@ -71,7 +91,10 @@ public static class DataSeeder
                     Description = "Wasserbeständige Badezimmermöbel mit modernem Design und praktischer Aufbewahrung",
                     Category = "innenausbau",
                     CompletionDate = new DateTime(2023, 8, 1),
-                    ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "275930533_557183349073269_1027403283594418107_n.jpg", logger)
+                    Images = new List<ProjectImage>
+                    {
+                        new ProjectImage { ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "275930533_557183349073269_1027403283594418107_n.jpg", logger) }
+                    }
                 },
                 new Project
                 {
@@ -79,7 +102,12 @@ public static class DataSeeder
                     Description = "Liebevoll restaurierte Vintage-Kommode mit originalem Charme und modernen Funktionen",
                     Category = "restaurierung",
                     CompletionDate = new DateTime(2023, 7, 1),
-                    ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "165218654_319780879480185_791655402348798634_n.jpg", logger)
+                    Images = new List<ProjectImage>
+                    {
+                        new ProjectImage { ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "165218654_319780879480185_791655402348798634_n.jpg", logger) },
+                        new ProjectImage { ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "165126696_319780842813522_600722974499482168_n.jpg", logger) },
+                        new ProjectImage { ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "164575341_319780886146851_4680904032335696531_n.jpg", logger) }
+                    }
                 },
                 new Project
                 {
@@ -87,7 +115,11 @@ public static class DataSeeder
                     Description = "Elegante Garderobenlösung mit integrierter Sitzbank und verstecktem Stauraum",
                     Category = "innenausbau",
                     CompletionDate = new DateTime(2023, 6, 1),
-                    ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "173351580_332704121521194_3199043170407150359_n.jpg", logger)
+                    Images = new List<ProjectImage>
+                    {
+                        new ProjectImage { ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "173351580_332704121521194_3199043170407150359_n.jpg", logger) },
+                        new ProjectImage { ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "173463508_332704011521205_1669496488695933343_n.jpg", logger) }
+                    }
                 },
                 new Project
                 {
@@ -95,7 +127,12 @@ public static class DataSeeder
                     Description = "Exklusiver Esstisch mit einzigartiger Holzmaserung und modernem Metallgestell",
                     Category = "moebel",
                     CompletionDate = new DateTime(2023, 5, 1),
-                    ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "186470630_351934169598189_7499588074027143111_n.jpg", logger)
+                    Images = new List<ProjectImage>
+                    {
+                        new ProjectImage { ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "186470630_351934169598189_7499588074027143111_n.jpg", logger) },
+                        new ProjectImage { ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "186515347_351933319598274_4894322160124164276_n.jpg", logger) },
+                        new ProjectImage { ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "186374663_351933316264941_6102702285541633600_n.jpg", logger) }
+                    }
                 },
                 new Project
                 {
@@ -103,23 +140,11 @@ public static class DataSeeder
                     Description = "Sorgfältig restaurierter Schreibtisch aus der Gründerzeit mit original Beschlägen",
                     Category = "restaurierung",
                     CompletionDate = new DateTime(2023, 4, 1),
-                    ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "167592435_323926579065615_4235416454899499471_n.jpg", logger)
-                },
-                new Project
-                {
-                    Title = "Einbauküche Modern",
-                    Description = "Moderne Einbauküche mit grifflosen Fronten und hochwertigen Elektrogeräten",
-                    Category = "innenausbau",
-                    CompletionDate = new DateTime(2023, 3, 1),
-                    ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "217992676_388996635891942_8976062071638749035_n.jpg", logger)
-                },
-                new Project
-                {
-                    Title = "Massivholzbett",
-                    Description = "Handgefertigtes Bett aus massiver Eiche mit integrierten Nachttischen",
-                    Category = "moebel",
-                    CompletionDate = new DateTime(2023, 2, 1),
-                    ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "263459089_489009239224014_1314902578724445827_n.jpg", logger)
+                    Images = new List<ProjectImage>
+                    {
+                        new ProjectImage { ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "167592435_323926579065615_4235416454899499471_n.jpg", logger) },
+                        new ProjectImage { ImageUrl = await CopyImageAsync(sourceImagesDir, imagesDirectory, "167607526_323926552398951_1998301018567591949_n.jpg", logger) }
+                    }
                 }
             };
 

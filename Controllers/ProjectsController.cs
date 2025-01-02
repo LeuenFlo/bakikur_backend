@@ -29,14 +29,16 @@ public class ProjectsController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Project>>> GetProjects()
     {
-        return await _context.Projects.ToListAsync();
+        return await _context.Projects.Include(p => p.Images).ToListAsync();
     }
 
     // GET: api/Projects/5
     [HttpGet("{id}")]
     public async Task<ActionResult<Project>> GetProject(int id)
     {
-        var project = await _context.Projects.FindAsync(id);
+        var project = await _context.Projects
+            .Include(p => p.Images)
+            .FirstOrDefaultAsync(p => p.Id == id);
 
         if (project == null)
         {
@@ -53,18 +55,26 @@ public class ProjectsController : ControllerBase
     {
         try
         {
-            // Save the image and get its path
-            var imagePath = await _imageService.SaveImageAsync(projectDto.Image);
-
             // Create new project
             var project = new Project
             {
                 Title = projectDto.Title,
                 Description = projectDto.Description,
                 Category = projectDto.Category,
-                CompletionDate = projectDto.CompletionDate,
-                ImageUrl = imagePath
+                CompletionDate = projectDto.CompletionDate
             };
+
+            // Save all images and create ProjectImage entities
+            foreach (var imageFile in projectDto.Images)
+            {
+                var imagePath = await _imageService.SaveImageAsync(imageFile);
+                var projectImage = new ProjectImage
+                {
+                    ImageUrl = imagePath,
+                    Project = project
+                };
+                project.Images.Add(projectImage);
+            }
 
             _context.Projects.Add(project);
             await _context.SaveChangesAsync();
@@ -89,6 +99,11 @@ public class ProjectsController : ControllerBase
         }
 
         _context.Entry(project).State = EntityState.Modified;
+        foreach (var image in project.Images)
+        {
+            _context.Entry(image).State = image.Id == 0 ? 
+                EntityState.Added : EntityState.Modified;
+        }
 
         try
         {
@@ -114,10 +129,19 @@ public class ProjectsController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteProject(int id)
     {
-        var project = await _context.Projects.FindAsync(id);
+        var project = await _context.Projects
+            .Include(p => p.Images)
+            .FirstOrDefaultAsync(p => p.Id == id);
+
         if (project == null)
         {
             return NotFound();
+        }
+
+        // Delete all associated images
+        foreach (var image in project.Images)
+        {
+            await _imageService.DeleteImageAsync(image.ImageUrl);
         }
 
         _context.Projects.Remove(project);

@@ -48,8 +48,17 @@ GET /api/projects
         "title": "Projekt Titel",
         "description": "Projektbeschreibung",
         "category": "Web",
-        "imageUrl": "/uploads/image.jpg",
-        "completionDate": "2024-01-30"
+        "completionDate": "2024-01-30",
+        "images": [
+            {
+                "id": 1,
+                "imageUrl": "/uploads/image1.jpg"
+            },
+            {
+                "id": 2,
+                "imageUrl": "/uploads/image2.jpg"
+            }
+        ]
     }
 ]
 ```
@@ -66,8 +75,17 @@ GET /api/projects/{id}
     "title": "Projekt Titel",
     "description": "Projektbeschreibung",
     "category": "Web",
-    "imageUrl": "/uploads/image.jpg",
-    "completionDate": "2024-01-30"
+    "completionDate": "2024-01-30",
+    "images": [
+        {
+            "id": 1,
+            "imageUrl": "/uploads/image1.jpg"
+        },
+        {
+            "id": 2,
+            "imageUrl": "/uploads/image2.jpg"
+        }
+    ]
 }
 ```
 
@@ -87,7 +105,7 @@ Content-Type: multipart/form-data
 - `description` (required): Projektbeschreibung
 - `category` (required): Projektkategorie
 - `completionDate` (required): Fertigstellungsdatum (YYYY-MM-DD)
-- `image` (required): Projektbild (File)
+- `images` (required): Projektbilder (Multiple Files)
 
 **Response:**
 ```json
@@ -96,8 +114,17 @@ Content-Type: multipart/form-data
     "title": "Neues Projekt",
     "description": "Beschreibung",
     "category": "Web",
-    "imageUrl": "/uploads/new-image.jpg",
-    "completionDate": "2024-01-30"
+    "completionDate": "2024-01-30",
+    "images": [
+        {
+            "id": 1,
+            "imageUrl": "/uploads/image1.jpg"
+        },
+        {
+            "id": 2,
+            "imageUrl": "/uploads/image2.jpg"
+        }
+    ]
 }
 ```
 
@@ -119,8 +146,17 @@ Content-Type: application/json
     "title": "Aktualisierter Titel",
     "description": "Aktualisierte Beschreibung",
     "category": "Mobile",
-    "imageUrl": "/uploads/existing-image.jpg",
-    "completionDate": "2024-02-01"
+    "completionDate": "2024-02-01",
+    "images": [
+        {
+            "id": 1,
+            "imageUrl": "/uploads/image1.jpg"
+        },
+        {
+            "id": 2,
+            "imageUrl": "/uploads/image2.jpg"
+        }
+    ]
 }
 ```
 

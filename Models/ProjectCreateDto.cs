@@ -17,5 +17,5 @@ public class ProjectCreateDto
     public DateTime CompletionDate { get; set; }
     
     [Required]
-    public IFormFile Image { get; set; } = null!;
+    public List<IFormFile> Images { get; set; } = new List<IFormFile>();
 } 
