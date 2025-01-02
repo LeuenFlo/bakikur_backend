@@ -54,11 +54,18 @@ public class AuthController : ControllerBase
             new Claim(ClaimTypes.Role, "Admin")
         };
 
+        var tokenLifetimeMinutes = _configuration.GetValue<int>("Jwt:TokenLifetimeMinutes");
+        if (tokenLifetimeMinutes <= 0)
+        {
+            tokenLifetimeMinutes = 180; // Fallback auf 3 Stunden wenn nicht konfiguriert
+            _logger.LogWarning("TokenLifetimeMinutes not configured or invalid, using default value of 180 minutes");
+        }
+
         var token = new JwtSecurityToken(
             issuer: _configuration["Jwt:Issuer"],
             audience: _configuration["Jwt:Audience"],
             claims: claims,
-            expires: DateTime.UtcNow.AddHours(3),
+            expires: DateTime.UtcNow.AddMinutes(tokenLifetimeMinutes),
             signingCredentials: credentials
         );
 

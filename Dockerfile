@@ -24,6 +24,9 @@ COPY --from=build /src/images ./images/
 RUN chown -R 1000:1000 wwwroot/uploads && \
     chown -R 1000:1000 images
 
+# Install openssl for key generation
+RUN apt-get update && apt-get install -y openssl && rm -rf /var/lib/apt/lists/*
+
 # Expose port
 EXPOSE 80
 
@@ -31,5 +34,7 @@ EXPOSE 80
 ENV ASPNETCORE_URLS=http://+:80
 ENV ASPNETCORE_ENVIRONMENT=Production
 
-# Run the application
-ENTRYPOINT ["dotnet", "BakikurBackend.dll"] 
+# Generate JWT key and start application
+CMD JWT_KEY=$(openssl rand -base64 48) && \
+    export Jwt__Key="$JWT_KEY" && \
+    dotnet BakikurBackend.dll 
